@@ -64,18 +64,18 @@ def finger_point
             #puts next_game2
     
             #next_game = true
-            #return true
-            next_game = ""
+            exit
+            #next_game = ""
         when "あなたの負けです"
             puts "あなたの負けです"
             #next_game = true
-            #return true
-            next_game = ""
+            exit
+            #next_game = ""
         end
     else
         puts "勝敗が決まりません"
-        next_game = ""
-        #return true
+        #next_game = ""
+        return true
     end
 end
 
