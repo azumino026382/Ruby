@@ -1,3 +1,5 @@
+require "pry"
+
 puts "じゃんけん..."
 
 
@@ -24,16 +26,27 @@ def janken
 
 
     if $player_hand == $program_hand
+
         puts "あいこで"
+      
         return true
+     
     elsif ($player_hand == 0 && $program_hand == 1) || ($player_hand == 1 && $program_hand == 2) || ($player_hand == 2 && $program_hand == 0)
+        
         puts "あなたの勝ちです"
+      
         $more_game =  "あなたの勝ちです"
+        
         return false
+      
     else
+    
         puts "あなたの負けです"
+ 
         $more_game =  "あなたの負けです"
+         
         return false
+        
     end
 
 end
@@ -56,36 +69,55 @@ def finger_point
     puts "あなた：#{directions[player_direction]}"
     puts "相手：#{directions[program_direction]}"
 
+ 
     if player_direction == program_direction
     #if ($player_hand == 0 && $program_hand == 1) || ($player_hand == 1 && $program_hand == 2) || ($player_hand == 2 && $program_hand == 0)
+     
         case $more_game
+     
         when "あなたの勝ちです"
+       
             puts "あなたの勝ちです"
             #puts next_game2
     
             #next_game = true
+         
             exit
             #next_game = ""
+        
         when "あなたの負けです"
+
             puts "あなたの負けです"
             #next_game = true
+        
             exit
             #next_game = ""
+       
         end
+    
     else
+    
         puts "勝敗が決まりません"
         #next_game = ""
+      
         return true
+      
     end
+   
 end
+
 
 next_game = true
 
+
 while next_game
+
   next_game = janken
+
 end
 
-$more_game = ""
+#binding.pry
+#$more_game = ""
 #next_gameがtrueの間、じゃんけんメソッドの戻り値をnext_gameに代入する
 =begin
 じゃんけんとあっちむいての連携
@@ -97,5 +129,7 @@ next_game =＝ false じゃんけんで勝敗が決まったら、あっちむ�
 =end
 
 until next_game
+
 next_game = finger_point
+
 end
